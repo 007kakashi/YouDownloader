@@ -30,7 +30,7 @@ if download:
                 st.download_button(label='Click to download', data=file_bytes, file_name=f'{video_title}.mp4', mime='video/mp4')
                 os.remove(video_file)
             else:
-                audio_stream = yt.streams.filter(only_audio=True).only_audio()
+                audio_stream = yt.streams.only_audio()
                 st.info("Downloading audio...")
                 audio_file = audio_stream.download(skip_existing=True, filename=video_title)
                 st.success("Audio downloaded successfully! Click below to download.")
